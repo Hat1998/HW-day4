@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route,Outlet } from "react-router-dom";
+
+import { Box } from "@chakra-ui/react";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import ContContainer from "./components/ContContainer";
+import Riyadh from "./components/Riyadh";
+import Saudi from "./components/Saudi";
+import Italy from "./components/Italy";
+import Rome from "./components/Rome";
+import Egypt from "./components/Eg";
+import Cairo from "./components/Q";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Box bg={"#F0FFF0"}>
+      <Routes>
+        <Route path="/" element={<Nav />} >
+          
+          <Route index element={<ContContainer/>}/>
+          <Route path="/Saudi" element={<Saudi/>}></Route> 
+          <Route path="/Saudi/Riyadh" element={<Riyadh/>}></Route> 
+
+          <Route path="/Italy" element={<Italy/>}></Route> 
+          <Route path="/Italy/Rome" element={<Rome/>}></Route> 
+
+          <Route path="/Egypt" element={<Egypt/>}></Route> 
+          <Route path="/Egypt/Cairo" element={<Cairo/>}></Route> 
+          
+        </Route>
+      </Routes>
+       <Footer/>
+       
+       </Box>
+  );
 }
 
-export default App
+export default App;
