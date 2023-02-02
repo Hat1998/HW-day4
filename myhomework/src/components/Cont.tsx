@@ -3,12 +3,14 @@ import { Box, Flex, Image, Link, chakra } from "@chakra-ui/react";
 
 interface imagesSchema{
     img:string,
-    title:string
+    title:string,
+    link:string
 
 
 }
 export default function Cont(props:imagesSchema){
   return (
+    
     <Flex
        mb={'150px'}
       alignItems="center"
